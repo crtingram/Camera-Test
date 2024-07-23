@@ -6,7 +6,6 @@ public class IsometricCharacterController : MonoBehaviour {
     public float walkSpeed = 4f;
 
     Vector3 forward, right;
-    private float moveSpeed;
 
     // Use this for initialization
     void Start() {
@@ -17,10 +16,6 @@ public class IsometricCharacterController : MonoBehaviour {
 
         // -45 degrees from the world x axis
         right = Quaternion.Euler(new Vector3(0, 90, 0)) * forward;
-
-        // Initial speed
-        moveSpeed = walkSpeed;
-
     }
 
     // Update is called once per frame
@@ -36,8 +31,8 @@ public class IsometricCharacterController : MonoBehaviour {
     void Move() {
 
         // Movement speed
-        Vector3 rightMovement = right * moveSpeed * Input.GetAxis("Horizontal");
-        Vector3 upMovement = forward * moveSpeed * Input.GetAxis("Vertical");
+        Vector3 rightMovement = right * walkSpeed * Input.GetAxis("Horizontal");
+        Vector3 upMovement = forward * walkSpeed * Input.GetAxis("Vertical");
 
         // Calculate what is forward
         Vector3 heading = Vector3.Normalize(rightMovement + upMovement);
