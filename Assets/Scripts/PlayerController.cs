@@ -1,50 +1,18 @@
 using UnityEngine;
-using System.Collections;
 
-public class IsometricCharacterController : MonoBehaviour {
+public class PlayerController : MonoBehaviour {
 
-    public float walkSpeed = 4f;
+    public float walkSpeed = 400.0f;
 
-    Vector3 forward, right;
+    private CharacterController controller;
 
-    // Use this for initialization
     void Start() {
-
-        forward = Camera.main.transform.forward;
-        forward.y = 0;
-        forward = Vector3.Normalize(forward);
-
-        // -45 degrees from the world x axis
-        right = Quaternion.Euler(new Vector3(0, 90, 0)) * forward;
+        controller = gameObject.GetComponent<CharacterController>();
     }
 
-    // Update is called once per frame
-    void Update() {
-
-        // Movement
-        if (Input.anyKey) {
-            Move();
-        }
-
+    void FixedUpdate() {
+        Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        controller.Move(move * Time.deltaTime * walkSpeed);
     }
 
-    void Move() {
-
-        // Movement speed
-        Vector3 rightMovement = right * walkSpeed * Input.GetAxis("Horizontal");
-        Vector3 upMovement = forward * walkSpeed * Input.GetAxis("Vertical");
-
-        // Calculate what is forward
-        Vector3 heading = Vector3.Normalize(rightMovement + upMovement);
-
-        // Set new position
-        Vector3 newPosition = transform.position;
-        newPosition += rightMovement;
-        newPosition += upMovement;
-
-        // Smoothly move the new position
-        // transform.forward = heading; // Do not want the camera to rotate as we are moving around.
-        transform.position = Vector3.Lerp(transform.position, newPosition, Time.deltaTime);
-
-    }
 }
