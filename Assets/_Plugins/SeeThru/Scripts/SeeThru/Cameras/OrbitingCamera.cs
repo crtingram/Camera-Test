@@ -3,11 +3,9 @@
 
 using UnityEngine;
 
-namespace SeeThru.Cameras
-{
+namespace SeeThru.Cameras {
     [AddComponentMenu("SeeThru/Orbiting Camera")]
-    public class OrbitingCamera : SeeThruCamera
-    {
+    public class OrbitingCamera : SeeThruCamera {
         [Header("OrbitingCamera - Target")]
         [Tooltip("The target of the Spring Arm.")]
         public Transform Target;
@@ -67,10 +65,8 @@ namespace SeeThru.Cameras
         private Vector3 _previousTargetPosition;
         private Vector2 _orbitAngles;
         private float _lastRotationTime;
-        private Vector3 _cameraHalfExtends
-        {
-            get
-            {
+        private Vector3 _cameraHalfExtends {
+            get {
                 Vector3 halfExtends;
                 halfExtends.y = MainCamera.nearClipPlane * Mathf.Tan(0.5f * Mathf.Deg2Rad * MainCamera.fieldOfView);
                 halfExtends.x = halfExtends.y * MainCamera.aspect;
@@ -79,67 +75,53 @@ namespace SeeThru.Cameras
             }
         }
 
-        public override void Awake()
-        {
+        public override void Awake() {
             base.Awake();
-            if (Target != null)
-            {
+            if (Target != null) {
                 _lateTargetPosition = Target.position;
             }
             _orbitAngles = new Vector2(45f, 0f);
             transform.rotation = Quaternion.Euler(_orbitAngles);
         }
 
-        public override void Start()
-        {
+        public override void Start() {
             base.Start();
-            if (Target == null)
-            {
+            if (Target == null) {
                 Debug.LogError($"{this.GetType().ToString()} was not given a Target.");
             }
         }
 
-        private void LateUpdate()
-        {
-            if (IsCameraActive)
-            {
-                if (Target != null)
-                {
+        private void LateUpdate() {
+            if (IsCameraActive) {
+                if (Target != null) {
                     float distanceDelta = Input.GetAxis(DistanceAxis);
-                    if (distanceDelta > 0)
-                    {
+                    if (distanceDelta > 0) {
                         TargetDistance -= (MultiplyByDistanceAxis == false ? DistanceStep : Mathf.Abs(DistanceStep * distanceDelta));
                     }
-                    else if(distanceDelta < 0)
-                    {
+                    else if (distanceDelta < 0) {
                         TargetDistance += (MultiplyByDistanceAxis == false ? DistanceStep : Mathf.Abs(DistanceStep * distanceDelta));
                     }
                     TargetDistance = Mathf.Clamp(TargetDistance, MinTargetDistance, MaxTargetDistance);
                     SetCameraPosition();
                     Quaternion lookRotation;
-                    if (StayBehindTarget == false ? SetRotation() : SetRotation() || OrbitBehind())
-                    {
+                    if (StayBehindTarget == false ? SetRotation() : SetRotation() || OrbitBehind()) {
                         _orbitAngles.x = Mathf.Clamp(_orbitAngles.x, MinVerticalAngle, MaxVerticalAngle);
-                        if (_orbitAngles.y < 0f)
-                        {
+                        if (_orbitAngles.y < 0f) {
                             _orbitAngles.y += 360f;
                         }
-                        else if (_orbitAngles.y >= 360f)
-                        {
+                        else if (_orbitAngles.y >= 360f) {
                             _orbitAngles.y -= 360f;
                         }
                         lookRotation = Quaternion.Euler(_orbitAngles);
                     }
-                    else
-                    {
+                    else {
                         lookRotation = transform.rotation;
                     }
 
                     Vector3 lookDirection = lookRotation * Vector3.forward;
                     Vector3 lookPosition = _lateTargetPosition - lookDirection * TargetDistance;
 
-                    if (CollideWithEnvironment)
-                    {
+                    if (CollideWithEnvironment) {
                         Vector3 rectOffset = lookDirection * MainCamera.nearClipPlane;
                         Vector3 rectPosition = lookPosition + rectOffset;
                         Vector3 castFrom = Target.position;
@@ -148,8 +130,7 @@ namespace SeeThru.Cameras
                         float castDistance = castLine.magnitude;
                         Vector3 castDirection = castLine / castDistance;
 
-                        if (Physics.BoxCast(castFrom, _cameraHalfExtends, castDirection, out RaycastHit hit, lookRotation, castDistance, ObstructionMask))
-                        {
+                        if (Physics.BoxCast(castFrom, _cameraHalfExtends, castDirection, out RaycastHit hit, lookRotation, castDistance, ObstructionMask)) {
                             rectPosition = castFrom + castDirection * Mathf.Clamp(hit.distance, MinTargetDistance, MaxTargetDistance);
                             lookPosition = rectPosition - rectOffset;
                         }
@@ -159,33 +140,26 @@ namespace SeeThru.Cameras
             }
         }
 
-        private void SetCameraPosition()
-        {
+        private void SetCameraPosition() {
             Vector3 targetPosition = Target.position;
             _previousTargetPosition = _lateTargetPosition;
-            if (UseTargetDeviation)
-            {
-                if (TargetDeviation > 0f)
-                {
+            if (UseTargetDeviation) {
+                if (TargetDeviation > 0f) {
                     float distance = Vector3.Distance(targetPosition, _lateTargetPosition);
                     float alpha = 1f;
-                    if (distance > 0.01f && TargetCentering > 0f)
-                    {
+                    if (distance > 0.01f && TargetCentering > 0f) {
                         alpha = Mathf.Pow(1f - TargetCentering, DeltaTime);
                     }
-                    if (distance > TargetDeviation)
-                    {
+                    if (distance > TargetDeviation) {
                         alpha = Mathf.Min(alpha, TargetDeviation / distance);
                     }
                     _lateTargetPosition = Vector3.Lerp(targetPosition, _lateTargetPosition, alpha);
                 }
-                else
-                {
+                else {
                     _lateTargetPosition = targetPosition;
                 }
             }
-            else
-            {
+            else {
                 _lateTargetPosition = targetPosition;
             }
         }
@@ -194,13 +168,11 @@ namespace SeeThru.Cameras
         /// Sets the cameras rotation based on input.
         /// </summary>
         /// <returns>True if the rotation has changed else false.</returns>
-        private bool SetRotation()
-        {
+        private bool SetRotation() {
             Vector2 input = new Vector2(Input.GetAxis(HorizontalAxis) * HorizontalSensitivity, Input.GetAxis(VerticalAxis) * VerticalSensitivity);
 
             if (input.x < -Mathf.Epsilon || input.x > Mathf.Epsilon ||
-                input.y < -Mathf.Epsilon || input.y > Mathf.Epsilon)
-            {
+                input.y < -Mathf.Epsilon || input.y > Mathf.Epsilon) {
                 _orbitAngles += OrbitSpeed * DeltaTime * input;
                 _lastRotationTime = DeltaTime;
                 return true;
@@ -212,27 +184,22 @@ namespace SeeThru.Cameras
         /// Will make the camera orbit behind the target if it comes towards the camera.
         /// </summary>
         /// <returns>True if the rotation has changed else false.</returns>
-        private bool OrbitBehind()
-        {
-            if (DeltaTime - _lastRotationTime < StayBehindDelay)
-            {
+        private bool OrbitBehind() {
+            if (DeltaTime - _lastRotationTime < StayBehindDelay) {
                 return false;
             }
             Vector2 movement = new Vector2(_lateTargetPosition.x - _previousTargetPosition.x, _lateTargetPosition.z - _previousTargetPosition.z);
-            if (movement.sqrMagnitude < Mathf.Epsilon)
-            {
+            if (movement.sqrMagnitude < Mathf.Epsilon) {
                 return false;
             }
 
             float angle = GetAngleFromDirection(movement / Mathf.Sqrt(movement.sqrMagnitude));
             float delta = Mathf.Abs(Mathf.DeltaAngle(_orbitAngles.y, angle));
             float rotationDifference = OrbitSpeed * Mathf.Min(DeltaTime, movement.sqrMagnitude);
-            if (delta < AlignSmoothRange)
-            {
+            if (delta < AlignSmoothRange) {
                 rotationDifference *= delta / AlignSmoothRange;
             }
-            else if (180f - delta < AlignSmoothRange)
-            {
+            else if (180f - delta < AlignSmoothRange) {
                 rotationDifference *= (180f - delta) / AlignSmoothRange;
             }
 
@@ -240,28 +207,23 @@ namespace SeeThru.Cameras
             return true;
         }
 
-        private float GetAngleFromDirection(Vector2 direction)
-        {
+        private float GetAngleFromDirection(Vector2 direction) {
             float angle = Mathf.Acos(direction.y) * Mathf.Rad2Deg;
             return direction.x < 0f ? 360f - angle : angle;
         }
 
-        private void OnValidate()
-        {
-            if (MaxTargetDistance <= MinTargetDistance)
-            {
+        private void OnValidate() {
+            if (MaxTargetDistance <= MinTargetDistance) {
                 MaxTargetDistance = MinTargetDistance + 0.05f;
             }
 
-            if (MinTargetDistance < 0)
-            {
+            if (MinTargetDistance < 0) {
                 MinTargetDistance = 0f;
             }
 
             TargetDistance = Mathf.Clamp(TargetDistance, MinTargetDistance, MaxTargetDistance);
 
-            if (MaxVerticalAngle < MinVerticalAngle)
-            {
+            if (MaxVerticalAngle < MinVerticalAngle) {
                 MaxVerticalAngle = MinVerticalAngle;
             }
         }
