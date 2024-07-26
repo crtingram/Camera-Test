@@ -6,11 +6,6 @@ public class PlayerController : MonoBehaviour {
     public float walkSpeed = 400.0f;
     private CharacterController controller;
 
-    [Header("--- Camera Settings ---")]
-    public float cameraZoomSensitivity = 20f;
-    public float cameraMinFov = 15f;
-    public float cameraMaxFov = 100f;
-
     private GameObject Item_Axe, Item_Pickaxe, Item_Sword;
 
     void Start() {
@@ -26,7 +21,6 @@ public class PlayerController : MonoBehaviour {
 
     void Update() {
         UpdateItem();
-        UpdateCamera(); // Move to camera script.
         PlayerAngle();
     }
 
@@ -46,14 +40,6 @@ public class PlayerController : MonoBehaviour {
 
         float angle = Mathf.Atan2(newPos.y, newPos.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(new Vector3(270, 0, -angle));
-    }
-
-    void UpdateCamera() {
-        float fov = Camera.main.fieldOfView;
-        fov -= Input.GetAxis("Mouse ScrollWheel") * cameraZoomSensitivity;
-        // Clamp is probably unoptimized.
-        fov = Mathf.Clamp(fov, cameraMinFov, cameraMaxFov);
-        Camera.main.fieldOfView = fov;
     }
 
     void UpdateItem() {
