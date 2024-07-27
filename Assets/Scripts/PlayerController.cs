@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
@@ -7,6 +6,8 @@ public class PlayerController : MonoBehaviour {
     private CharacterController controller;
 
     private GameObject Item_Axe, Item_Pickaxe, Item_Sword;
+
+    public GameObject target;
 
     void Start() {
         Item_Axe = transform.GetChild(0).gameObject;
