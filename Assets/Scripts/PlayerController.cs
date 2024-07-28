@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
-    public float walkSpeed = 400.0f;
     private CharacterController controller;
-
     private GameObject Item_Axe, Item_Pickaxe, Item_Sword;
+
+    public float walkSpeed = 400.0f;
 
     public GameObject target;
 
