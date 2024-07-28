@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
@@ -37,11 +38,22 @@ public class PlayerController : MonoBehaviour {
                 target = raycastHit.transform;
                 Resource res = target.GetComponent<Resource>();
                 if (res) {
-                    res.TakeDamage(10);
+                    res.TakeDamage(1);
+                    // This is not good code and I dont care.
+                    if (res.type == Resource.ResourceType.tree) {
+                        resCont.incrementTree(1);
+                    }
+                    else if (res.type == Resource.ResourceType.rock) {
+                        resCont.incrementRock(1);
+                    }
+                    else if (res.type == Resource.ResourceType.gold) {
+                        resCont.incrementGold(1);
+                    }
+                    Debug.Log(resCont.ToString());
                 }
-            }
-            else {
-                target = null;
+                else {
+                    target = null;
+                }
             }
         }
     }
@@ -121,6 +133,10 @@ public class PlayerController : MonoBehaviour {
 
         public void incrementGold(int incr) {
             _gold += incr;
+        }
+
+        public override string ToString() {
+            return "Tree: " + tree + "; Rock: " + rock + "; Gold: " + gold + ";";
         }
 
     }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Assertions;
 
 class Resource : MonoBehaviour {
 
@@ -6,6 +7,14 @@ class Resource : MonoBehaviour {
     public int currentHealth;
 
     public HealthBar healthBar;
+
+    public enum ResourceType {
+        tree,
+        rock,
+        gold
+    }
+
+    public ResourceType type;
 
     void Start() {
         currentHealth = maxHealth;
