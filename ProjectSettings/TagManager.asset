@@ -7,6 +7,7 @@ TagManager:
   - Tree
   - Selectable
   - Resource
+  - HealthBarTag
   layers:
   - Default
   - TransparentFX

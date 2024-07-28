@@ -10,6 +10,7 @@ public class Resource : MonoBehaviour {
     void Start() {
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
+        healthBar.ShowHealthBar(false);
     }
 
     void Update() {
@@ -21,6 +22,14 @@ public class Resource : MonoBehaviour {
     void TakeDamage(int damage) {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
+    }
+
+    void OnMouseOver() {
+        healthBar.ShowHealthBar(true);
+    }
+
+    void OnMouseExit() {
+        healthBar.ShowHealthBar(false);
     }
 
 }
