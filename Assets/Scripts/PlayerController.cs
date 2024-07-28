@@ -7,7 +7,8 @@ public class PlayerController : MonoBehaviour {
 
     public float walkSpeed = 400.0f;
 
-    public GameObject target;
+    private Transform target;
+    private RaycastHit raycastHit;
 
     void Start() {
         Item_Axe = transform.GetChild(0).gameObject;
@@ -23,6 +24,23 @@ public class PlayerController : MonoBehaviour {
     void Update() {
         UpdateItem();
         PlayerAngle();
+        FillTarget();
+    }
+
+    void FillTarget() {
+        if (Input.GetKeyDown(KeyCode.Mouse0)) {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out raycastHit)) {
+                target = raycastHit.transform;
+                Resource res = target.GetComponent<Resource>();
+                if (res) {
+                    res.TakeDamage(10);
+                }
+            }
+            else {
+                target = null;
+            }
+        }
     }
 
     void PlayerMovement() {
