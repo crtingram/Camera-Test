@@ -10,11 +10,14 @@ public class PlayerController : MonoBehaviour {
     private Transform target;
     private RaycastHit raycastHit;
 
+    public ResourceContainer resCont;
+
     void Start() {
         Item_Axe = transform.GetChild(0).gameObject;
         Item_Pickaxe = transform.GetChild(1).gameObject;
         Item_Sword = transform.GetChild(2).gameObject;
         controller = gameObject.GetComponent<CharacterController>();
+        resCont = new ResourceContainer();
     }
 
     void FixedUpdate() {
@@ -79,6 +82,47 @@ public class PlayerController : MonoBehaviour {
             Item_Pickaxe.SetActive(false);
             Item_Sword.SetActive(!Item_Sword.activeSelf);
         }
+    }
+
+    public class ResourceContainer {
+
+        private int _tree = 0;
+        private int _rock = 0;
+        private int _gold = 0;
+
+        public int tree {
+            get => _tree;
+            set {
+                _tree = value;
+            }
+        }
+
+        public int rock {
+            get => _rock;
+            set {
+                _rock = value;
+            }
+        }
+
+        public int gold {
+            get => _gold;
+            set {
+                _gold = value;
+            }
+        }
+
+        public void incrementTree(int incr) {
+            _tree += incr;
+        }
+
+        public void incrementRock(int incr) {
+            _rock += incr;
+        }
+
+        public void incrementGold(int incr) {
+            _gold += incr;
+        }
+
     }
 
 }
