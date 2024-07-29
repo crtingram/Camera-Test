@@ -202,7 +202,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 1.79}
+  m_AnchoredPosition: {x: 0, y: 2.18}
   m_SizeDelta: {x: 100, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &7316728235648103335
@@ -693,11 +693,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2547381582373904750, guid: e38d101c53602bf408dac20885c751af, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2547381582373904750, guid: e38d101c53602bf408dac20885c751af, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3967494065149963934, guid: e38d101c53602bf408dac20885c751af, type: 3}
       propertyPath: m_Pivot.x
@@ -725,7 +725,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3967494065149963934, guid: e38d101c53602bf408dac20885c751af, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3967494065149963934, guid: e38d101c53602bf408dac20885c751af, type: 3}
       propertyPath: m_SizeDelta.y
@@ -782,6 +782,10 @@ PrefabInstance:
     - target: {fileID: 8157529579652781187, guid: e38d101c53602bf408dac20885c751af, type: 3}
       propertyPath: m_Name
       value: Health Bar
+      objectReference: {fileID: 0}
+    - target: {fileID: 8157529579652781187, guid: e38d101c53602bf408dac20885c751af, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

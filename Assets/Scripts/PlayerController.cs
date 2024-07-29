@@ -19,6 +19,9 @@ public class PlayerController : MonoBehaviour {
         Item_Sword = transform.GetChild(2).gameObject;
         controller = gameObject.GetComponent<CharacterController>();
         resCont = new ResourceContainer();
+
+        // UIScript.incrementTree += ResourceContainer.incrementTree;
+
     }
 
     void FixedUpdate() {
