@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerController : MonoBehaviour {
 
@@ -13,15 +14,18 @@ public class PlayerController : MonoBehaviour {
 
     public ResourceContainer resCont;
 
+    public OnResourceGather OnTreeGather, OnRockGather, OnGoldGather;
+
+    [System.Serializable]
+    public class OnResourceGather : UnityEvent<int> {
+    }
+
     void Start() {
         Item_Axe = transform.GetChild(0).gameObject;
         Item_Pickaxe = transform.GetChild(1).gameObject;
         Item_Sword = transform.GetChild(2).gameObject;
         controller = gameObject.GetComponent<CharacterController>();
         resCont = new ResourceContainer();
-
-        // UIScript.incrementTree += ResourceContainer.incrementTree;
-
     }
 
     void FixedUpdate() {
@@ -43,16 +47,20 @@ public class PlayerController : MonoBehaviour {
                 if (res) {
                     res.TakeDamage(1);
                     // This is not good code and I dont care.
+                    // Generification -- How? Interfaces, Inheritance.
                     if (res.type == Resource.ResourceType.tree) {
                         resCont.incrementTree(1);
+                        OnTreeGather.Invoke(resCont.tree);
                     }
                     else if (res.type == Resource.ResourceType.rock) {
                         resCont.incrementRock(1);
+                        OnRockGather.Invoke(resCont.rock);
                     }
                     else if (res.type == Resource.ResourceType.gold) {
                         resCont.incrementGold(1);
+                        OnGoldGather.Invoke(resCont.gold);
                     }
-                    Debug.Log(resCont.ToString());
+                    // Debug.Log(resCont.ToString());
                 }
                 else {
                     target = null;

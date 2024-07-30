@@ -1,23 +1,35 @@
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class UIScript : MonoBehaviour {
 
-    public delegate void ClickAction(int i);
-    public static event ClickAction incrementTree;
+    public GameObject treeText, rockText, goldText;
 
-    public static void RaiseClickAction() {
-        if (incrementTree != null) {
-            incrementTree(1);
+    void Start() {
+        treeText.GetComponent<TextMeshProUGUI>().text = 0.ToString();
+        rockText.GetComponent<TextMeshProUGUI>().text = 0.ToString();
+        goldText.GetComponent<TextMeshProUGUI>().text = 0.ToString();
+    }
+
+    public void UpdateTreeText(int i) {
+        TextMeshProUGUI res = treeText.GetComponent<TextMeshProUGUI>();
+        if (res) {
+            res.text = i.ToString();
         }
     }
 
-    public TextMesh treeText;
+    public void UpdateRockText(int i) {
+        TextMeshProUGUI res = rockText.GetComponent<TextMeshProUGUI>();
+        if (res) {
+            res.text = i.ToString();
+        }
+    }
 
-    public void UpdateTreeText() {
-        Debug.Log("Test ASDF");
-        treeText.text = "test";
+    public void UpdateGoldText(int i) {
+        TextMeshProUGUI res = goldText.GetComponent<TextMeshProUGUI>();
+        if (res) {
+            res.text = i.ToString();
+        }
     }
 
 }
