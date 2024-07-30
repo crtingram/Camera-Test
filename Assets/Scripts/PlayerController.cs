@@ -60,7 +60,6 @@ public class PlayerController : MonoBehaviour {
                         resCont.incrementGold(1);
                         OnGoldGather.Invoke(resCont.gold);
                     }
-                    // Debug.Log(resCont.ToString());
                 }
                 else {
                     target = null;

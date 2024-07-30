@@ -1,6 +1,15 @@
+using System;
 using UnityEngine;
 
+[Obsolete("This class needs more work.", false)]
 public class SelectionScript : MonoBehaviour {
+
+
+    /**
+
+        Possibly create Information window similar to AOE 2.
+
+    **/
 
     public Material highlightMaterial;
     public Material selectionMaterial;
