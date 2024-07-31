@@ -33,8 +33,10 @@ public class PlayerController : MonoBehaviour {
     }
 
     void Update() {
+        // TODO Update to use events instead.
         UpdateItem();
         PlayerAngle();
+
         FillTarget();
     }
 
@@ -45,6 +47,11 @@ public class PlayerController : MonoBehaviour {
                 target = raycastHit.transform;
                 Resource res = target.GetComponent<Resource>();
                 if (res) {
+                    float dist = Vector3.Distance(res.gameObject.transform.position, transform.position);
+                    if (dist >= 100) {
+                        // TODO Works but we need to fix the distance.
+                        return;
+                    }
                     res.TakeDamage(1);
                     // This is not good code and I dont care.
                     // Generification -- How? Interfaces, Inheritance.
