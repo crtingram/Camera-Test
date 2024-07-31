@@ -314,6 +314,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkSpeed: 50
+  OnTreeGather:
+    m_PersistentCalls:
+      m_Calls: []
+  OnRockGather:
+    m_PersistentCalls:
+      m_Calls: []
+  OnGoldGather:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!143 &1415267471
 CharacterController:
   m_ObjectHideFlags: 0
