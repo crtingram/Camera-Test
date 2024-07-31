@@ -243,9 +243,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkSpeed: 400
-  cameraZoomSensitivity: 20
-  cameraMinFov: 15
-  cameraMaxFov: 100
+  OnTreeGather:
+    m_PersistentCalls:
+      m_Calls: []
+  OnRockGather:
+    m_PersistentCalls:
+      m_Calls: []
+  OnGoldGather:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!143 &7481985718581712118
 CharacterController:
   m_ObjectHideFlags: 0
