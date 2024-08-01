@@ -5060,10 +5060,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
-    - target: {fileID: 2362474084937551185, guid: a3c77032dbf5869409b52cbb0efa7306, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2818911308675764575, guid: a3c77032dbf5869409b52cbb0efa7306, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -5143,10 +5139,6 @@ PrefabInstance:
     - target: {fileID: 2818911308675764575, guid: a3c77032dbf5869409b52cbb0efa7306, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3968013717166416231, guid: a3c77032dbf5869409b52cbb0efa7306, type: 3}
-      propertyPath: m_UiScaleMode
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
