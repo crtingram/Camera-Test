@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour {
     private GameObject Item_Axe, Item_Pickaxe, Item_Sword;
 
     public float walkSpeed = 400.0f;
+    public float gatherRange = 100.0f;
 
     private Transform target;
     private RaycastHit raycastHit;
@@ -45,7 +46,7 @@ public class PlayerController : MonoBehaviour {
                 Resource res = target.GetComponent<Resource>();
                 if (res) {
                     float dist = Vector3.Distance(res.gameObject.transform.position, transform.position);
-                    if (dist >= 100) {
+                    if (dist >= gatherRange) {
                         // TODO Works but we need to fix the distance.
                         return;
                     }
