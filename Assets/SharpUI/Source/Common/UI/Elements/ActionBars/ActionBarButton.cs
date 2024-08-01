@@ -6,10 +6,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace SharpUI.Source.Common.UI.Elements.ActionBars
-{
-    public class ActionBarButton : RectButton
-    {
+namespace SharpUI.Source.Common.UI.Elements.ActionBars {
+    public class ActionBarButton : RectButton {
         [SerializeField] public Image iconImage;
         [SerializeField] public Image cooldownFillImage;
         [SerializeField] public TMP_Text cooldownText;
@@ -23,8 +21,7 @@ namespace SharpUI.Source.Common.UI.Elements.ActionBars
         private ITimeProvider _timeProvider = new TimeProvider();
         private bool _isCoolingDown;
 
-        protected override void SetupUI()
-        {
+        protected override void SetupUI() {
             base.SetupUI();
             InitCooldown();
             InitUiUpdater();
@@ -32,8 +29,7 @@ namespace SharpUI.Source.Common.UI.Elements.ActionBars
 
         public void SetTimeProvider(ITimeProvider timeProvider) => _timeProvider = timeProvider;
 
-        private void InitCooldown()
-        {
+        private void InitCooldown() {
             _cooldown = new ActionBarCooldown();
             _cooldown.TakeCooldownImage(cooldownFillImage);
             _cooldown.TakeCooldownText(cooldownText);
@@ -42,17 +38,15 @@ namespace SharpUI.Source.Common.UI.Elements.ActionBars
             _cooldown?.Expire();
         }
 
-        private void InitUiUpdater()
-        {
+        private void InitUiUpdater() {
             _managedUiUpdate = new ManagedUiUpdate();
             _managedUiUpdate.SetUiUpdateTimeout(0.02f);
             _managedUiUpdate.ObserveUiUpdate().SubscribeWith(this, elapsedTime => _cooldown.Update());
         }
 
         public void SetActionBarCooldown(IActionBarCooldown cooldown) => _cooldown = cooldown;
-        
-        public void Update()
-        {
+
+        public void Update() {
             if (!_isCoolingDown) return;
 
             var deltaTime = _timeProvider.GetDeltaTime();
@@ -60,28 +54,25 @@ namespace SharpUI.Source.Common.UI.Elements.ActionBars
             _managedUiUpdate?.ConsumeDeltaTime(deltaTime);
         }
 
-        public void CoolDown(float seconds)
-        {
+        public void CoolDown(float seconds) {
             if (!CanCoolDown()) return;
-            
+
             _isCoolingDown = true;
             _cooldown?.CoolDown(seconds);
         }
 
         public bool IsCoolingDown() => _isCoolingDown;
 
-        private bool CanCoolDown()
-        {
+        private bool CanCoolDown() {
             if (!IsAbilityBound())
                 return false;
-            
+
             return canOverrideCooldown || !_isCoolingDown;
         }
 
         private bool IsAbilityBound() => iconImage.gameObject.activeSelf;
 
-        private void CoolDownFinished()
-        {
+        private void CoolDownFinished() {
             _isCoolingDown = false;
         }
 

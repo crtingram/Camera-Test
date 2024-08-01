@@ -33,10 +33,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     void Update() {
-        // TODO Update to use events instead.
-        UpdateItem();
         PlayerAngle();
-
         FillTarget();
     }
 
@@ -93,24 +90,22 @@ public class PlayerController : MonoBehaviour {
         transform.rotation = Quaternion.Euler(new Vector3(270, 0, -angle));
     }
 
-    void UpdateItem() {
-        if (Input.GetKeyDown(KeyCode.Alpha1)) {
-            Item_Axe.SetActive(!Item_Axe.activeSelf);
-            Item_Pickaxe.SetActive(false);
-            Item_Sword.SetActive(false);
-        }
+    public void SwitchToPickAxe() {
+        Item_Axe.SetActive(!Item_Axe.activeSelf);
+        Item_Pickaxe.SetActive(false);
+        Item_Sword.SetActive(false);
+    }
 
-        if (Input.GetKeyDown(KeyCode.Alpha2)) {
-            Item_Axe.SetActive(false);
-            Item_Pickaxe.SetActive(!Item_Pickaxe.activeSelf);
-            Item_Sword.SetActive(false);
-        }
+    public void SwitchToAxe() {
+        Item_Axe.SetActive(false);
+        Item_Pickaxe.SetActive(!Item_Pickaxe.activeSelf);
+        Item_Sword.SetActive(false);
+    }
 
-        if (Input.GetKeyDown(KeyCode.Alpha3)) {
-            Item_Axe.SetActive(false);
-            Item_Pickaxe.SetActive(false);
-            Item_Sword.SetActive(!Item_Sword.activeSelf);
-        }
+    public void SwitchToSword() {
+        Item_Axe.SetActive(false);
+        Item_Pickaxe.SetActive(false);
+        Item_Sword.SetActive(!Item_Sword.activeSelf);
     }
 
     public class ResourceContainer {
