@@ -1295,6 +1295,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 415a569543ff66c48b4de5ae5d717478, type: 3}
+--- !u!1 &528890652 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8190475796135782724, guid: a3c77032dbf5869409b52cbb0efa7306, type: 3}
+  m_PrefabInstance: {fileID: 5009593649489738235}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &535068173
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4823,6 +4828,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 221259952676917678, guid: a07946564c0286e419056705ac888233, type: 3}
+      propertyPath: ObjectSelect.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 221259952676917678, guid: a07946564c0286e419056705ac888233, type: 3}
       propertyPath: OnGoldGather.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -4832,6 +4841,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 221259952676917678, guid: a07946564c0286e419056705ac888233, type: 3}
       propertyPath: OnTreeGather.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 221259952676917678, guid: a07946564c0286e419056705ac888233, type: 3}
+      propertyPath: objectSelect.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 221259952676917678, guid: a07946564c0286e419056705ac888233, type: 3}
@@ -4851,6 +4864,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 221259952676917678, guid: a07946564c0286e419056705ac888233, type: 3}
+      propertyPath: objectSelect.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 221259952676917678, guid: a07946564c0286e419056705ac888233, type: 3}
+      propertyPath: ObjectSelect.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5009593649489738238}
+    - target: {fileID: 221259952676917678, guid: a07946564c0286e419056705ac888233, type: 3}
       propertyPath: OnGoldGather.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 5009593649489738238}
@@ -4863,6 +4884,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5009593649489738238}
     - target: {fileID: 221259952676917678, guid: a07946564c0286e419056705ac888233, type: 3}
+      propertyPath: objectSelect.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5009593649489738238}
+    - target: {fileID: 221259952676917678, guid: a07946564c0286e419056705ac888233, type: 3}
+      propertyPath: ObjectSelect.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 221259952676917678, guid: a07946564c0286e419056705ac888233, type: 3}
       propertyPath: OnGoldGather.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
@@ -4873,6 +4902,14 @@ PrefabInstance:
     - target: {fileID: 221259952676917678, guid: a07946564c0286e419056705ac888233, type: 3}
       propertyPath: OnTreeGather.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 221259952676917678, guid: a07946564c0286e419056705ac888233, type: 3}
+      propertyPath: objectSelect.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 221259952676917678, guid: a07946564c0286e419056705ac888233, type: 3}
+      propertyPath: ObjectSelect.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UpdateInformationPanel
       objectReference: {fileID: 0}
     - target: {fileID: 221259952676917678, guid: a07946564c0286e419056705ac888233, type: 3}
       propertyPath: OnGoldGather.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -4887,6 +4924,14 @@ PrefabInstance:
       value: UpdateTreeText
       objectReference: {fileID: 0}
     - target: {fileID: 221259952676917678, guid: a07946564c0286e419056705ac888233, type: 3}
+      propertyPath: objectSelect.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UpdateInformationPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 221259952676917678, guid: a07946564c0286e419056705ac888233, type: 3}
+      propertyPath: ObjectSelect.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UIScript, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 221259952676917678, guid: a07946564c0286e419056705ac888233, type: 3}
       propertyPath: OnGoldGather.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: UIScript, Assembly-CSharp
       objectReference: {fileID: 0}
@@ -4899,8 +4944,16 @@ PrefabInstance:
       value: UIScript, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 221259952676917678, guid: a07946564c0286e419056705ac888233, type: 3}
+      propertyPath: objectSelect.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UIScript, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 221259952676917678, guid: a07946564c0286e419056705ac888233, type: 3}
       propertyPath: OnTreeGather.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 221259952676917678, guid: a07946564c0286e419056705ac888233, type: 3}
+      propertyPath: ObjectSelect.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 221259952676917678, guid: a07946564c0286e419056705ac888233, type: 3}
       propertyPath: OnGoldGather.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -4912,6 +4965,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 221259952676917678, guid: a07946564c0286e419056705ac888233, type: 3}
       propertyPath: OnTreeGather.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 221259952676917678, guid: a07946564c0286e419056705ac888233, type: 3}
+      propertyPath: objectSelect.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 288560338729223772, guid: a07946564c0286e419056705ac888233, type: 3}
@@ -5152,6 +5209,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3801186713556699090, guid: a3c77032dbf5869409b52cbb0efa7306, type: 3}
+      propertyPath: infoPanelText
+      value: 
+      objectReference: {fileID: 528890652}
     - target: {fileID: 5102651571786243266, guid: a3c77032dbf5869409b52cbb0efa7306, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -5160,6 +5221,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 4412657521205124121}
+    - target: {fileID: 8190475796135782724, guid: a3c77032dbf5869409b52cbb0efa7306, type: 3}
+      propertyPath: m_Name
+      value: Info Panel Text
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

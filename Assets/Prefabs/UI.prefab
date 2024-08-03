@@ -1014,6 +1014,7 @@ MonoBehaviour:
   treeText: {fileID: 5269838205155422714}
   rockText: {fileID: 7190545335474217123}
   goldText: {fileID: 6996125518511862580}
+  infoPanelText: {fileID: 0}
 --- !u!1 &2577882496007219390
 GameObject:
   m_ObjectHideFlags: 0
@@ -1422,7 +1423,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -246, y: -6}
-  m_SizeDelta: {x: 75, y: 75}
+  m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6216604442757233040
 CanvasRenderer:
@@ -2585,7 +2586,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0.2919693, y: 0, z: -0.000000006878931, w: 0.17518425}
+  m_margin: {x: 0.2919693, y: 0, z: -0.000000006878931, w: 5.9027843}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2621,8 +2622,8 @@ RectTransform:
   m_LocalScale: {x: 0.20573437, y: 0.25387377, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8071522621638383824}
   - {fileID: 5146458920019819536}
+  - {fileID: 8071522621638383824}
   - {fileID: 8944103734922484481}
   - {fileID: 8241565275322408759}
   - {fileID: 8947097637609302421}
@@ -2630,7 +2631,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -67.2, y: 59.6}
+  m_AnchoredPosition: {x: -67.2, y: 58.6}
   m_SizeDelta: {x: 653.1025, y: 459.8683}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8864038757298264354

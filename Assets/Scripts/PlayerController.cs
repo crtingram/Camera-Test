@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour {
     [System.Serializable]
     public class OnObjectSelect : UnityEvent<String> {
     }
-    public OnObjectSelect objectSelect;
+    public OnObjectSelect ObjectSelect;
 
     void Start() {
         itemAxe = transform.GetChild(0).gameObject;
@@ -53,6 +53,7 @@ public class PlayerController : MonoBehaviour {
                 target = raycastHit.transform;
                 Resource res = target.GetComponent<Resource>();
                 if (res) {
+                    ObjectSelect.Invoke(res.ToString());
                     float dist = Vector3.Distance(res.gameObject.transform.position, transform.position);
                     if (dist >= gatherRange) {
                         // TODO Works but we need to fix the distance.
