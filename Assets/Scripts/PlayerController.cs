@@ -5,7 +5,7 @@ using UnityEngine.Events;
 public class PlayerController : MonoBehaviour {
 
     private CharacterController controller;
-    private GameObject Item_Axe, Item_Pickaxe, Item_Sword;
+    private GameObject itemAxe, itemPickaxe, itemSword;
 
     public float walkSpeed = 400.0f;
     public float gatherRange = 100.0f;
@@ -15,16 +15,20 @@ public class PlayerController : MonoBehaviour {
 
     public ResourceContainer resCont;
 
-    public OnResourceGather OnTreeGather, OnRockGather, OnGoldGather;
-
     [System.Serializable]
     public class OnResourceGather : UnityEvent<int> {
     }
+    public OnResourceGather OnTreeGather, OnRockGather, OnGoldGather;
+
+    [System.Serializable]
+    public class OnObjectSelect : UnityEvent<String> {
+    }
+    public OnObjectSelect objectSelect;
 
     void Start() {
-        Item_Axe = transform.GetChild(0).gameObject;
-        Item_Pickaxe = transform.GetChild(1).gameObject;
-        Item_Sword = transform.GetChild(2).gameObject;
+        itemAxe = transform.GetChild(0).gameObject;
+        itemPickaxe = transform.GetChild(1).gameObject;
+        itemSword = transform.GetChild(2).gameObject;
         controller = gameObject.GetComponent<CharacterController>();
         resCont = new ResourceContainer();
     }
@@ -92,21 +96,21 @@ public class PlayerController : MonoBehaviour {
     }
 
     public void SwitchToPickAxe() {
-        Item_Axe.SetActive(!Item_Axe.activeSelf);
-        Item_Pickaxe.SetActive(false);
-        Item_Sword.SetActive(false);
+        itemAxe.SetActive(!itemAxe.activeSelf);
+        itemPickaxe.SetActive(false);
+        itemSword.SetActive(false);
     }
 
     public void SwitchToAxe() {
-        Item_Axe.SetActive(false);
-        Item_Pickaxe.SetActive(!Item_Pickaxe.activeSelf);
-        Item_Sword.SetActive(false);
+        itemAxe.SetActive(false);
+        itemPickaxe.SetActive(!itemPickaxe.activeSelf);
+        itemSword.SetActive(false);
     }
 
     public void SwitchToSword() {
-        Item_Axe.SetActive(false);
-        Item_Pickaxe.SetActive(false);
-        Item_Sword.SetActive(!Item_Sword.activeSelf);
+        itemAxe.SetActive(false);
+        itemPickaxe.SetActive(false);
+        itemSword.SetActive(!itemSword.activeSelf);
     }
 
     public class ResourceContainer {

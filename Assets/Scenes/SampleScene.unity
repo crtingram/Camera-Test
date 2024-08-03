@@ -4942,7 +4942,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1939997290643306332, guid: a07946564c0286e419056705ac888233, type: 3}
       propertyPath: far clip plane
-      value: 1002.64
+      value: 6000
       objectReference: {fileID: 0}
     - target: {fileID: 1939997290643306332, guid: a07946564c0286e419056705ac888233, type: 3}
       propertyPath: orthographic size
