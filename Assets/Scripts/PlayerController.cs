@@ -53,6 +53,7 @@ public class PlayerController : MonoBehaviour {
                 target = raycastHit.transform;
                 Resource res = target.GetComponent<Resource>();
                 if (res) {
+                    // We want a selectable script or object type.
                     ObjectSelect.Invoke(res.GetDisplayObject());
                     float dist = Vector3.Distance(res.gameObject.transform.position, transform.position);
                     if (dist >= gatherRange) {
@@ -77,6 +78,7 @@ public class PlayerController : MonoBehaviour {
                 }
                 else {
                     target = null;
+                    ObjectSelect.Invoke(new DisplayObject("", ""));
                 }
             }
         }
