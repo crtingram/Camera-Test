@@ -25,6 +25,10 @@ class Resource : MonoBehaviour {
         }
     }
 
+    public DisplayObject GetDisplayObject() {
+        return new DisplayObject("", ToString());
+    }
+
     public override string ToString() {
         return currentHealth + " / " + maxHealth;
     }

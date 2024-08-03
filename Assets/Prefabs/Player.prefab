@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2966678861124951855}
   - component: {fileID: 1939997290643306332}
   - component: {fileID: 2975454706386221163}
+  - component: {fileID: 3257074622026763327}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 2661587098307341982}
   serializedVersion: 2
   m_LocalRotation: {x: 0.38268346, y: -0, z: -0, w: 0.92387956}
-  m_LocalPosition: {x: 0, y: 230.19998, z: -305.5999}
+  m_LocalPosition: {x: 0, y: 356, z: -319}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -65,10 +66,10 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 60
+  far clip plane: 6000
+  field of view: 95.5464
   orthographic: 0
-  orthographic size: 400
+  orthographic size: 622.3
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -92,6 +93,24 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2661587098307341982}
   m_Enabled: 1
+--- !u!114 &3257074622026763327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2661587098307341982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5244bf26dfe2614b985a659f2e8ce1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 288560338729223772}
+  zPosition: -300
+  yPosition: 300
+  cameraZoomSensitivity: 20
+  cameraMinFov: 15
+  cameraMaxFov: 150
 --- !u!1001 &3942909720439015516
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -156,6 +175,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -5568371526223589888, guid: ba1d23d84c5d93e4b822de4c25230b9e, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: -2577548232221058511, guid: ba1d23d84c5d93e4b822de4c25230b9e, type: 3}
       propertyPath: m_LocalScale.x
       value: 1000
@@ -169,8 +192,16 @@ PrefabInstance:
       value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: -2577548232221058511, guid: ba1d23d84c5d93e4b822de4c25230b9e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -2577548232221058511, guid: ba1d23d84c5d93e4b822de4c25230b9e, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: -2577548232221058511, guid: ba1d23d84c5d93e4b822de4c25230b9e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -177
       objectReference: {fileID: 0}
     - target: {fileID: -2577548232221058511, guid: ba1d23d84c5d93e4b822de4c25230b9e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -224,6 +255,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -5568371526223589888, guid: ba1d23d84c5d93e4b822de4c25230b9e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7481985718581712118}
+    - targetCorrespondingSourceObject: {fileID: -5568371526223589888, guid: ba1d23d84c5d93e4b822de4c25230b9e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6896463004567022450}
   m_SourcePrefab: {fileID: 100100000, guid: ba1d23d84c5d93e4b822de4c25230b9e, type: 3}
 --- !u!1 &288560338729223772 stripped
 GameObject:
@@ -243,15 +277,67 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkSpeed: 400
+  gatherRange: 100
   OnTreeGather:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UIScript, Assembly-CSharp
+        m_MethodName: UpdateTreeText
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnRockGather:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UIScript, Assembly-CSharp
+        m_MethodName: UpdateRockText
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnGoldGather:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UIScript, Assembly-CSharp
+        m_MethodName: UpdateGoldText
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  ObjectSelect:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UIScript, Assembly-CSharp
+        m_MethodName: UpdateInformationPanel
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!143 &7481985718581712118
 CharacterController:
   m_ObjectHideFlags: 0
@@ -278,6 +364,33 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0.015}
+--- !u!54 &6896463004567022450
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 288560338729223772}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 4
+  m_CollisionDetection: 0
 --- !u!4 &3545105852317740983 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ba1d23d84c5d93e4b822de4c25230b9e, type: 3}
@@ -558,7 +671,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 2fe6391e099243d4797c1c9137679dd8, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1541998606474349963, guid: 2fe6391e099243d4797c1c9137679dd8, type: 3}
       propertyPath: m_Materials.Array.data[0]

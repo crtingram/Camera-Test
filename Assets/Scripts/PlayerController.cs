@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour {
     public OnResourceGather OnTreeGather, OnRockGather, OnGoldGather;
 
     [System.Serializable]
-    public class OnObjectSelect : UnityEvent<String> {
+    public class OnObjectSelect : UnityEvent<DisplayObject> {
     }
     public OnObjectSelect ObjectSelect;
 
@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour {
                 target = raycastHit.transform;
                 Resource res = target.GetComponent<Resource>();
                 if (res) {
-                    ObjectSelect.Invoke(res.ToString());
+                    ObjectSelect.Invoke(res.GetDisplayObject());
                     float dist = Vector3.Distance(res.gameObject.transform.position, transform.position);
                     if (dist >= gatherRange) {
                         // TODO Works but we need to fix the distance.

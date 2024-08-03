@@ -1,5 +1,6 @@
 using System;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class UIScript : MonoBehaviour {
@@ -34,10 +35,10 @@ public class UIScript : MonoBehaviour {
         }
     }
 
-    public void UpdateInformationPanel(String str) {
+    public void UpdateInformationPanel(DisplayObject displayObject) {
         TextMeshProUGUI res = infoPanelText.GetComponent<TextMeshProUGUI>();
         if (res) {
-            res.text = str;
+            res.text = displayObject.description;
         }
     }
 
