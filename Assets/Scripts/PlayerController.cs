@@ -39,6 +39,10 @@ public class PlayerController : MonoBehaviour {
 
     void Update() {
         PlayerAngle();
+        /** 
+        TODO - Events but we need to sort out wether the player needs to do something or if UI needs update
+            What is getting updated in response to  UI input
+        **/
         FillTarget();
     }
 
