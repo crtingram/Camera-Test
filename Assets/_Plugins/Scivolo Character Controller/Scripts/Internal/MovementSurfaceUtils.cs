@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 
-namespace MenteBacata.ScivoloCharacterController.Internal {
-    public static class MovementSurfaceUtils {
+namespace MenteBacata.ScivoloCharacterController.Internal
+{
+    public static class MovementSurfaceUtils
+    {
         // Minimum upward component of the surface normal for it to be considered a steep slope.
         private const float minSteepSlopeUp = 0.173f;
 
@@ -11,22 +13,28 @@ namespace MenteBacata.ScivoloCharacterController.Internal {
         // Minimum upward component of the surface normal for it to be considered a sloped ceiling.
         private const float minSlopedCeilingUp = -0.99f;
 
-        public static MovementSurface GetMovementSurface(Vector3 normal, Vector3 upDirection, float minFloorUp) {
+        public static MovementSurface GetMovementSurface(Vector3 normal, Vector3 upDirection, float minFloorUp)
+        {
             float upComponent = Math.Dot(normal, upDirection);
 
-            if (upComponent > minFloorUp) {
+            if (upComponent > minFloorUp)
+            {
                 return MovementSurface.Floor;
             }
-            else if (upComponent > minSteepSlopeUp) {
+            else if (upComponent > minSteepSlopeUp)
+            {
                 return MovementSurface.SteepSlope;
             }
-            else if (upComponent > minWallUp) {
+            else if (upComponent > minWallUp)
+            {
                 return MovementSurface.Wall;
             }
-            else if (upComponent > minSlopedCeilingUp) {
+            else if (upComponent > minSlopedCeilingUp)
+            {
                 return MovementSurface.SlopedCeiling;
             }
-            else {
+            else
+            {
                 return MovementSurface.FlatCeiling;
             }
         }

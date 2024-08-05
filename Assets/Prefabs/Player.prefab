@@ -170,7 +170,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -2577548232221058511, guid: ba1d23d84c5d93e4b822de4c25230b9e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -2577548232221058511, guid: ba1d23d84c5d93e4b822de4c25230b9e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -224,6 +224,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -5568371526223589888, guid: ba1d23d84c5d93e4b822de4c25230b9e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7481985718581712118}
+    - targetCorrespondingSourceObject: {fileID: -5568371526223589888, guid: ba1d23d84c5d93e4b822de4c25230b9e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1958949616324726565}
   m_SourcePrefab: {fileID: 100100000, guid: ba1d23d84c5d93e4b822de4c25230b9e, type: 3}
 --- !u!1 &288560338729223772 stripped
 GameObject:
@@ -243,9 +246,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkSpeed: 400
-  cameraZoomSensitivity: 20
-  cameraMinFov: 15
-  cameraMaxFov: 100
+  OnTreeGather:
+    m_PersistentCalls:
+      m_Calls: []
+  OnRockGather:
+    m_PersistentCalls:
+      m_Calls: []
+  OnGoldGather:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!143 &7481985718581712118
 CharacterController:
   m_ObjectHideFlags: 0
@@ -272,6 +281,33 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0.015}
+--- !u!54 &1958949616324726565
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 288560338729223772}
+  serializedVersion: 4
+  m_Mass: 10
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 1
 --- !u!4 &3545105852317740983 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ba1d23d84c5d93e4b822de4c25230b9e, type: 3}

@@ -4,9 +4,10 @@ using UnityEngine;
 using MenteBacata.ScivoloCharacterController.Internal;
 using static MenteBacata.ScivoloCharacterController.Internal.OverlapResolver;
 
-namespace MenteBacata.ScivoloCharacterController {
-    public class CharacterCapsule : MonoBehaviour {
-
+namespace MenteBacata.ScivoloCharacterController
+{
+    public class CharacterCapsule : MonoBehaviour
+    {
         [SerializeField]
         [Tooltip("Height of the capsule.")]
         private float height = 2f;
@@ -49,33 +50,39 @@ namespace MenteBacata.ScivoloCharacterController {
         /// <summary>
         /// Height of the capsule.
         /// </summary>
-        public float Height {
+        public float Height
+        {
             get => height;
-            set {
+            set 
+            {
                 height = value;
                 ValidateHeight();
-                SetColliderProperties();
+                SetColliderProperties(); 
             }
         }
 
         /// <summary>
         /// Radius of the capsule.
         /// </summary>
-        public float Radius {
+        public float Radius
+        {
             get => radius;
-            set {
+            set 
+            {
                 radius = value;
                 ValidateHeight();
-                SetColliderProperties();
+                SetColliderProperties(); 
             }
         }
 
         /// <summary>
         /// Vertical offset from the game object position to the bottom of the capsule.
         /// </summary>
-        public float VerticalOffset {
+        public float VerticalOffset
+        {
             get => verticalOffset;
-            set {
+            set
+            {
                 verticalOffset = value;
                 SetColliderProperties();
             }
@@ -84,9 +91,11 @@ namespace MenteBacata.ScivoloCharacterController {
         /// <summary>
         /// Position of the capsule.
         /// </summary>
-        public Vector3 Position {
+        public Vector3 Position
+        {
             get => useTransform ? transform.position : _position;
-            set {
+            set
+            {
                 if (useTransform)
                     transform.position = value;
                 else
@@ -97,9 +106,11 @@ namespace MenteBacata.ScivoloCharacterController {
         /// <summary>
         /// Rotation of the capsule.
         /// </summary>
-        public Quaternion Rotation {
+        public Quaternion Rotation
+        {
             get => useTransform ? transform.rotation : _rotation;
-            set {
+            set
+            {
                 if (useTransform)
                     transform.rotation = value;
                 else
@@ -110,7 +121,8 @@ namespace MenteBacata.ScivoloCharacterController {
         /// <summary>
         /// Capsule up direction.
         /// </summary>
-        public Vector3 UpDirection {
+        public Vector3 UpDirection
+        {
             get => Rotation * new Vector3(0f, 1f, 0f);
             set => Rotation = Quaternion.FromToRotation(UpDirection, value) * Rotation;
         }
@@ -163,7 +175,8 @@ namespace MenteBacata.ScivoloCharacterController {
         internal CapsuleCollider CapsuleCollider => capsuleCollider;
 
 
-        private void Awake() {
+        private void Awake()
+        {
             DoPreliminaryCheck();
             InstantiateComponents();
 
@@ -174,7 +187,8 @@ namespace MenteBacata.ScivoloCharacterController {
         /// Checks if the character capsule overlaps any other collider in the same layer mask of the character game object.
         /// </summary>
         /// <returns>True if it overlaps, false otherwise.</returns>
-        public bool CheckOverlap() {
+        public bool CheckOverlap()
+        {
             return OverlapUtils.CheckCapsuleOverlap(LowerHemisphereCenter, UpperHemisphereCenter, radius + overlapMargin, collisionMask, capsuleCollider);
         }
 
@@ -182,7 +196,8 @@ namespace MenteBacata.ScivoloCharacterController {
         /// Checks if the character capsule overlaps any other colliders in the given layer mask.
         /// </summary>
         /// <returns>True if it overlaps, false otherwise.</returns>
-        public bool CheckOverlap(LayerMask layerMask) {
+        public bool CheckOverlap(LayerMask layerMask)
+        {
             return OverlapUtils.CheckCapsuleOverlap(LowerHemisphereCenter, UpperHemisphereCenter, radius + overlapMargin, layerMask, capsuleCollider);
         }
 
@@ -190,7 +205,8 @@ namespace MenteBacata.ScivoloCharacterController {
         /// Collects the colliders that overlap the character capsule in the same layer mask.
         /// </summary>
         /// <returns>Overlapping colliders count.</returns>
-        public int CollectOverlaps(Collider[] overlaps) {
+        public int CollectOverlaps(Collider[] overlaps)
+        {
             return OverlapUtils.OverlapCapsule(LowerHemisphereCenter, UpperHemisphereCenter, radius + overlapMargin, overlaps, collisionMask, capsuleCollider);
         }
 
@@ -198,7 +214,8 @@ namespace MenteBacata.ScivoloCharacterController {
         /// Collects the colliders that overlap the character capsule.
         /// </summary>
         /// <returns>Overlapping colliders count.</returns>
-        public int CollectOverlaps(Collider[] overlaps, LayerMask layerMask) {
+        public int CollectOverlaps(Collider[] overlaps, LayerMask layerMask)
+        {
             return OverlapUtils.OverlapCapsule(LowerHemisphereCenter, UpperHemisphereCenter, radius + overlapMargin, overlaps, layerMask, capsuleCollider);
         }
 
@@ -207,18 +224,21 @@ namespace MenteBacata.ScivoloCharacterController {
         /// considering only the high priority colliders.
         /// </summary>
         /// <returns>True if it managed to resolve all overlaps, false otherwise.</returns>
-        public bool TryResolveOverlap() {
+        public bool TryResolveOverlap()
+        {
             Vector3 position = Position;
             Quaternion rotation = Rotation;
 
-            if (TryResolveCapsuleOverlap(position, rotation, capsuleCollider, overlapMargin, contactOffset, collisionMask, out Vector3 newPosition)) {
+            if (TryResolveCapsuleOverlap(position, rotation, capsuleCollider, overlapMargin, contactOffset, collisionMask, out Vector3 newPosition))
+            {
                 Position = newPosition;
                 return true;
             }
 
             LayerMask prioritizedCollisionMask = collisionMask & prioritizedOverlap;
 
-            if (prioritizedCollisionMask == collisionMask) {
+            if (prioritizedCollisionMask == collisionMask)
+            {
                 Position = newPosition;
                 return false;
             }
@@ -229,22 +249,27 @@ namespace MenteBacata.ScivoloCharacterController {
             return false;
         }
 
-        private void DoPreliminaryCheck() {
+        private void DoPreliminaryCheck()
+        {
             if (!Mathf.Approximately(transform.lossyScale.x, 1f) ||
                 !Mathf.Approximately(transform.lossyScale.y, 1f) ||
-                !Mathf.Approximately(transform.lossyScale.z, 1f)) {
+                !Mathf.Approximately(transform.lossyScale.z, 1f))
+            {
                 Debug.LogWarning($"{nameof(CharacterCapsule)}: Object scale is not (1, 1, 1).");
             }
-
-            foreach (var col in gameObject.GetComponentsInChildren<Collider>(true)) {
-                if (col != capsuleCollider && !col.isTrigger && !Physics.GetIgnoreLayerCollision(gameObject.layer, col.gameObject.layer)) {
+            
+            foreach (var col in gameObject.GetComponentsInChildren<Collider>(true))
+            {
+                if (col != capsuleCollider && !col.isTrigger && !Physics.GetIgnoreLayerCollision(gameObject.layer, col.gameObject.layer))
+                {
                     Debug.LogWarning($"{nameof(CharacterCapsule)}: Found other colliders on this gameobject or in its childrens.");
                     break;
                 }
             }
         }
 
-        private void InstantiateComponents() {
+        private void InstantiateComponents()
+        {
             capsuleCollider = gameObject.AddComponent<CapsuleCollider>();
             SetColliderProperties();
 
@@ -252,14 +277,16 @@ namespace MenteBacata.ScivoloCharacterController {
             Rigidbody.isKinematic = true;
         }
 
-        private void ValidateHeight() {
+        private void ValidateHeight()
+        {
             if (height >= 2f * radius)
                 return;
 
             height = 2f * radius;
         }
 
-        private void SetColliderProperties() {
+        private void SetColliderProperties()
+        {
             if (capsuleCollider is null)
                 return;
 
@@ -269,15 +296,18 @@ namespace MenteBacata.ScivoloCharacterController {
             capsuleCollider.direction = 1; // Y-Axis
         }
 
-        private void OnValidate() {
+        private void OnValidate()
+        {
             ValidateHeight();
 
             if (capsuleCollider != null)
                 SetColliderProperties();
         }
 
-        private void OnDrawGizmosSelected() {
-            if (Application.isPlaying == false) {
+        private void OnDrawGizmosSelected()
+        {
+            if (Application.isPlaying == false)
+            {
                 Gizmos.color = GizmosUtility.defaultColliderColor;
                 GizmosUtility.DrawWireCapsule(LowerHemisphereCenter, UpperHemisphereCenter, radius);
             }
