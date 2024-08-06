@@ -1627,7 +1627,7 @@ GameObject:
   - component: {fileID: 4046516010714507033}
   - component: {fileID: 5294052616713302549}
   m_Layer: 5
-  m_Name: Button 2
+  m_Name: Button 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2325,7 +2325,7 @@ GameObject:
   - component: {fileID: 7715844049593838835}
   - component: {fileID: 7865705487986282990}
   m_Layer: 5
-  m_Name: Button 1
+  m_Name: Button 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2487,8 +2487,8 @@ RectTransform:
   m_LocalScale: {x: 0.61251, y: 0.61251, z: 0.61251}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 5092099014840501701}
   - {fileID: 6604278995141716602}
+  - {fileID: 5092099014840501701}
   - {fileID: 7196684746859608081}
   - {fileID: 1079642200283789333}
   m_Father: {fileID: 2818911308675764575}

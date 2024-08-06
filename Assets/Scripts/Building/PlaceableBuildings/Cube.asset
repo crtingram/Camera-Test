@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a17dd9b29043229489b0bbc55495da4b, type: 3}
+  m_Name: Cube
+  m_EditorClassIdentifier: 
+  objectName: Capsule
+  buildingPrefab: {fileID: 8517903523573431789, guid: cdce048376c7fd44489b3d0234163e75, type: 3}
+  buildTime: 4
+  cost: 0
