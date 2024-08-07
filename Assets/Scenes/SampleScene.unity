@@ -4955,16 +4955,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4046516010714507033, guid: a3c77032dbf5869409b52cbb0efa7306, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4046516010714507033, guid: a3c77032dbf5869409b52cbb0efa7306, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 1342555216}
+    - target: {fileID: 4046516010714507033, guid: a3c77032dbf5869409b52cbb0efa7306, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SpawnBuilding
       objectReference: {fileID: 0}
-    - target: {fileID: 5001037523136139466, guid: a3c77032dbf5869409b52cbb0efa7306, type: 3}
-      propertyPath: m_Name
-      value: Button 1
+    - target: {fileID: 4046516010714507033, guid: a3c77032dbf5869409b52cbb0efa7306, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SpawnBuildings, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4046516010714507033, guid: a3c77032dbf5869409b52cbb0efa7306, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: BuildingSO, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5102651571786243266, guid: a3c77032dbf5869409b52cbb0efa7306, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -4974,62 +4982,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 4412657521205124121}
-    - target: {fileID: 6241263950724969560, guid: a3c77032dbf5869409b52cbb0efa7306, type: 3}
-      propertyPath: barState
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6934106301494265434, guid: a3c77032dbf5869409b52cbb0efa7306, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 6934106301494265434, guid: a3c77032dbf5869409b52cbb0efa7306, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1342555216}
-    - target: {fileID: 6934106301494265434, guid: a3c77032dbf5869409b52cbb0efa7306, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SpawnBuilding
-      objectReference: {fileID: 0}
-    - target: {fileID: 6934106301494265434, guid: a3c77032dbf5869409b52cbb0efa7306, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: SpawnBuildings, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 6934106301494265434, guid: a3c77032dbf5869409b52cbb0efa7306, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 11400000, guid: 2da428ba68fcab54b9fb877ae0bc0add, type: 2}
-    - target: {fileID: 6934106301494265434, guid: a3c77032dbf5869409b52cbb0efa7306, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: BuildingSO, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 7360382268722059070, guid: a3c77032dbf5869409b52cbb0efa7306, type: 3}
-      propertyPath: m_Name
-      value: Button 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7715844049593838835, guid: a3c77032dbf5869409b52cbb0efa7306, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 7715844049593838835, guid: a3c77032dbf5869409b52cbb0efa7306, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1342555216}
-    - target: {fileID: 7715844049593838835, guid: a3c77032dbf5869409b52cbb0efa7306, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SpawnBuilding
-      objectReference: {fileID: 0}
-    - target: {fileID: 7715844049593838835, guid: a3c77032dbf5869409b52cbb0efa7306, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: SpawnBuildings, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 7715844049593838835, guid: a3c77032dbf5869409b52cbb0efa7306, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 11400000, guid: 0c7591a153680b444b2c367093616249, type: 2}
-    - target: {fileID: 7715844049593838835, guid: a3c77032dbf5869409b52cbb0efa7306, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: BuildingSO, Assembly-CSharp
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

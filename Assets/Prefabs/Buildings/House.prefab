@@ -86,6 +86,9 @@ PrefabInstance:
     - {fileID: 65702495048144492, guid: 6384291df8b9e1743a3d209b98f890af, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 6384291df8b9e1743a3d209b98f890af, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8331821365864499574}
     - targetCorrespondingSourceObject: {fileID: -8391222552659086748, guid: 6384291df8b9e1743a3d209b98f890af, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6217319963596314178}
@@ -148,6 +151,28 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.02, y: 0.019999998, z: 0.019999994}
   m_Center: {x: -0.000000029802322, y: -0.000000059604645, z: -4.656613e-10}
+--- !u!1 &8238346304744014161 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6384291df8b9e1743a3d209b98f890af, type: 3}
+  m_PrefabInstance: {fileID: 9121220264689302528}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8331821365864499574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8238346304744014161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c538db485db91f6428885ddf7544d975, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionLayers:
+    serializedVersion: 2
+    m_Bits: 3072
+  noCollisionColor: {r: 0, g: 1, b: 0, a: 1}
+  collisionColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &8437905175722872420 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8391222552659086748, guid: 6384291df8b9e1743a3d209b98f890af, type: 3}

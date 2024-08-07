@@ -998,7 +998,7 @@ MonoBehaviour:
   actionPanel: {fileID: 865664380487311568}
   buildBuild: {fileID: 7639584421480975759}
   keyCode: 98
-  barState: 1
+  barState: 0
 --- !u!114 &3801186713556699090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1364,12 +1364,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: SwitchToSword
-        m_Mode: 1
+        m_TargetAssemblyTypeName: SpawnBuildings, Assembly-CSharp
+        m_MethodName: SpawnBuilding
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: 2da428ba68fcab54b9fb877ae0bc0add, type: 2}
+          m_ObjectArgumentAssemblyTypeName: BuildingSO, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1734,9 +1734,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: d8cbae34d1fa5d048aec264cb3c4e646, type: 3}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: SwitchToPickAxe
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2433,12 +2433,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: SwitchToAxe
-        m_Mode: 1
+        m_TargetAssemblyTypeName: SpawnBuildings, Assembly-CSharp
+        m_MethodName: SpawnBuilding
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: 0c7591a153680b444b2c367093616249, type: 2}
+          m_ObjectArgumentAssemblyTypeName: BuildingSO, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
