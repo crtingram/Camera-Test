@@ -58,14 +58,12 @@ public class BuildCollisionChecks : MonoBehaviour {
             }
         }
 
-        if (gameObject.GetComponent<Collider>()) {
+        if (gameObject.GetComponentsInChildren<Collider>().Length != 1) {
             Destroy(gameObject.GetComponent<Collider>());
         }
 
-        if (gameObject.GetComponentsInChildren<Collider>().Length > 1) {
-            foreach (Collider collider in gameObject.GetComponentsInChildren<Collider>()) {
-                collider.isTrigger = false;
-            }
+        foreach (Collider collider in gameObject.GetComponentsInChildren<Collider>()) {
+            collider.isTrigger = false;
         }
     }
 

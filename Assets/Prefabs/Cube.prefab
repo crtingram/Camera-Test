@@ -118,8 +118,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c538db485db91f6428885ddf7544d975, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collisionLayers:
-    serializedVersion: 2
-    m_Bits: 3072
   noCollisionColor: {r: 0, g: 1, b: 0.08090758, a: 0}
   collisionColor: {r: 1, g: 0, b: 0, a: 0}
