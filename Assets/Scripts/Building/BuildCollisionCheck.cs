@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BuildCollision : MonoBehaviour {
+public class BuildCollisionChecks : MonoBehaviour {
 
     [SerializeField] LayerMask collisionLayers;
 
@@ -9,15 +9,25 @@ public class BuildCollision : MonoBehaviour {
 
     private Material oldMaterial, unBuiltMaterial;
 
-    void Start() {
-        unBuiltMaterial = new Material(Shader.Find("Diffuse")) {
-            color = noCollisionColor
-        };
+    public bool colliding { get; private set; }
 
+    void Start() {
+        if (gameObject.GetComponentsInChildren<Renderer>().Length == 1) {
+            oldMaterial = GetComponent<Renderer>().material;
+        }
+        else if (gameObject.GetComponentsInChildren<Renderer>().Length > 1) {
+            foreach (Renderer renderer in gameObject.GetComponentsInChildren<Renderer>()) {
+                // Wont work ("correctly") if multiple materials.
+                oldMaterial = renderer.material;
+            }
+        }
+
+        unBuiltMaterial = new Material(Shader.Find("Diffuse"));
         SetColor(noCollisionColor);
     }
 
     void SetColor(Color c) {
+
         unBuiltMaterial.color = c;
 
         if (gameObject.GetComponentsInChildren<Renderer>().Length == 1) {
@@ -31,17 +41,13 @@ public class BuildCollision : MonoBehaviour {
     }
 
     void OnTriggerEnter(Collider other) {
-        if (collisionLayers == (collisionLayers | (1 << other.gameObject.layer))) {
-            if (other.gameObject.transform.root.gameObject.GetInstanceID() != transform.root.gameObject.GetInstanceID()) {
-                SetColor(collisionColor);
-            }
-        }
+        SetColor(collisionColor);
+        colliding = true;
     }
 
     void OnTriggerExit(Collider other) {
-        if (collisionLayers == (collisionLayers | (1 << other.gameObject.layer))) {
-            SetColor(noCollisionColor);
-        }
+        SetColor(noCollisionColor);
+        colliding = false;
     }
 
 }

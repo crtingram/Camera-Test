@@ -20,16 +20,6 @@ public class PlacementHelpers {
         return r;
     }
 
-    public static void ToggleRenderers(GameObject go, bool toggle) {
-        if (!go)
-            return;
-        Renderer[] renderers = go.GetComponentsInChildren<Renderer>();
-        if (renderers.Length > 0) {
-            foreach (Renderer r in renderers)
-                r.enabled = toggle;
-        }
-    }
-
     public static bool IsButtonPressed(GraphicRaycaster raycaster) {
         // TODO Understand me.
         if (!EventSystem.current) {
