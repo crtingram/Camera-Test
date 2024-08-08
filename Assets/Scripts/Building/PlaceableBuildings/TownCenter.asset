@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: TownCenter
   m_EditorClassIdentifier: 
   objectName: TownCenter
-  buildingPrefab: {fileID: 4550449229672933873, guid: 2b1ef5688357997478c8fd953dd1e82c, type: 3}
+  buildingPrefab: {fileID: 1421146920314200058, guid: 262a7050a22c47241b6c011b4cce2d1c, type: 3}
   buildTime: 0
   cost: 0

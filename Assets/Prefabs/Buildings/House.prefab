@@ -26,7 +26,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6384291df8b9e1743a3d209b98f890af, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6384291df8b9e1743a3d209b98f890af, type: 3}
       propertyPath: m_LocalPosition.z
@@ -34,7 +34,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6384291df8b9e1743a3d209b98f890af, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.42261824
+      value: -0.00000004371139
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6384291df8b9e1743a3d209b98f890af, type: 3}
       propertyPath: m_LocalRotation.x
@@ -42,7 +42,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6384291df8b9e1743a3d209b98f890af, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.9063078
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6384291df8b9e1743a3d209b98f890af, type: 3}
       propertyPath: m_LocalRotation.z
@@ -109,6 +109,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 6384291df8b9e1743a3d209b98f890af, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8331821365864499574}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 6384291df8b9e1743a3d209b98f890af, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 403454326909299901}
     - targetCorrespondingSourceObject: {fileID: -8391222552659086748, guid: 6384291df8b9e1743a3d209b98f890af, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6217319963596314178}
@@ -188,11 +191,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c538db485db91f6428885ddf7544d975, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collisionLayers:
-    serializedVersion: 2
-    m_Bits: 3072
   noCollisionColor: {r: 0, g: 1, b: 0, a: 1}
   collisionColor: {r: 1, g: 0, b: 0, a: 1}
+--- !u!65 &403454326909299901
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8238346304744014161}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.4710715, y: 1, z: 3.3108478}
+  m_Center: {x: 0.010638654, y: 0, z: 0.7440925}
 --- !u!1 &8437905175722872420 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8391222552659086748, guid: 6384291df8b9e1743a3d209b98f890af, type: 3}

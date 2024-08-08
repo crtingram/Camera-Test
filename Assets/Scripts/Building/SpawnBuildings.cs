@@ -1,9 +1,9 @@
 using UnityEngine;
 using UnityEngine.UI;
-using System.Collections.Generic;
-using OpenCover.Framework.Model;
 
 public class SpawnBuildings : MonoBehaviour {
+
+    public float rotationSpeed = 300f;
 
     #region 
     [TooltipAttribute("The layer in which the terrain is placed")]
@@ -31,20 +31,28 @@ public class SpawnBuildings : MonoBehaviour {
         if (currentSpawnedBuilding) {
             // We need to be on terrainLayer in order to built.
             if (PlacementHelpers.RaycastFromMouse(out hit, terrainLayer)) {
-                currentSpawnedBuilding.transform.position = new Vector3(hit.point.x, hit.point.y, hit.point.z);
+                currentSpawnedBuilding.transform.position = new Vector3(hit.point.x, currentSpawnedBuilding.transform.position.y, hit.point.z);
             }
         }
     }
 
     void Update() {
         if (currentSpawnedBuilding) {
+
+            if (Input.GetKey(KeyCode.Q)) {
+                currentSpawnedBuilding.gameObject.transform.Rotate(0, rotationSpeed * Time.deltaTime, 0);
+            }
+            else if (Input.GetKey(KeyCode.E)) {
+                currentSpawnedBuilding.gameObject.transform.Rotate(0, -rotationSpeed * Time.deltaTime, 0);
+            }
+
             // TODO Use events instead of.
             if (Input.GetMouseButton(0)) {
                 if (!PlacementHelpers.RaycastFromMouse(out hit, terrainLayer)) {
                     return;
                 }
 
-                currentSpawnedBuilding.transform.position = hit.point;
+                currentSpawnedBuilding.transform.position = new Vector3(hit.point.x, currentSpawnedBuilding.transform.position.y, hit.point.z);
 
                 if (CanPlaceBuilding()) {
                     GameObject instance = currentSpawnedBuilding;
@@ -72,6 +80,7 @@ public class SpawnBuildings : MonoBehaviour {
             return;
         }
         currentSpawnedBuilding = Instantiate(building.buildingPrefab);
+        // currentSpawnedBuilding.gameObject.transform.position;
     }
 
 }

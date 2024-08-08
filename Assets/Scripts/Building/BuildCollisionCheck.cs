@@ -1,8 +1,7 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Collider))]
 public class BuildCollisionChecks : MonoBehaviour {
-
-    [SerializeField] LayerMask collisionLayers;
 
     [SerializeField] Color noCollisionColor = Color.green;
     [SerializeField] Color collisionColor = Color.red;
@@ -27,7 +26,6 @@ public class BuildCollisionChecks : MonoBehaviour {
     }
 
     void SetColor(Color c) {
-
         unBuiltMaterial.color = c;
 
         if (gameObject.GetComponentsInChildren<Renderer>().Length == 1) {
@@ -59,11 +57,12 @@ public class BuildCollisionChecks : MonoBehaviour {
                 renderer.material = oldMaterial;
             }
         }
-        if (gameObject.GetComponentsInChildren<Collider>().Length == 1) {
-            gameObject.GetComponent<Collider>().isTrigger = false;
 
+        if (gameObject.GetComponent<Collider>()) {
+            Destroy(gameObject.GetComponent<Collider>());
         }
-        else if (gameObject.GetComponentsInChildren<Collider>().Length > 1) {
+
+        if (gameObject.GetComponentsInChildren<Collider>().Length > 1) {
             foreach (Collider collider in gameObject.GetComponentsInChildren<Collider>()) {
                 collider.isTrigger = false;
             }

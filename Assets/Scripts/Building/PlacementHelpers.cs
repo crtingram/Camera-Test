@@ -13,13 +13,6 @@ public class PlacementHelpers {
         return false;
     }
 
-    public static Rect MakeRectOfCollider(Collider col) {
-        Rect r = new Rect(col.bounds.center.x - col.bounds.extents.x,
-                        col.bounds.center.z - col.bounds.extents.z,
-                        col.bounds.size.x, col.bounds.size.z);
-        return r;
-    }
-
     public static bool IsButtonPressed(GraphicRaycaster raycaster) {
         // TODO Understand me.
         if (!EventSystem.current) {
