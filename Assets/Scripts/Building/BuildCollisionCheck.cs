@@ -50,4 +50,24 @@ public class BuildCollisionChecks : MonoBehaviour {
         colliding = false;
     }
 
+    private void OnDestroy() {
+        if (gameObject.GetComponentsInChildren<Renderer>().Length == 1) {
+            GetComponent<Renderer>().material = oldMaterial;
+        }
+        else if (gameObject.GetComponentsInChildren<Renderer>().Length > 1) {
+            foreach (Renderer renderer in gameObject.GetComponentsInChildren<Renderer>()) {
+                renderer.material = oldMaterial;
+            }
+        }
+        if (gameObject.GetComponentsInChildren<Collider>().Length == 1) {
+            gameObject.GetComponent<Collider>().isTrigger = false;
+
+        }
+        else if (gameObject.GetComponentsInChildren<Collider>().Length > 1) {
+            foreach (Collider collider in gameObject.GetComponentsInChildren<Collider>()) {
+                collider.isTrigger = false;
+            }
+        }
+    }
+
 }

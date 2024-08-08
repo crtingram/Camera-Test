@@ -48,6 +48,7 @@ public class SpawnBuildings : MonoBehaviour {
 
                 if (CanPlaceBuilding()) {
                     GameObject instance = currentSpawnedBuilding;
+                    Destroy(currentSpawnedBuilding.GetComponent<BuildCollisionChecks>());
                     currentSpawnedBuilding = null;
                 }
             }
