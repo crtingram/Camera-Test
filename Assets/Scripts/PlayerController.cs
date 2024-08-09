@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour {
     private Transform target;
     private RaycastHit raycastHit;
 
-    public ResourceContainer resCont;
+    public static ResourceContainer resCont;
 
     [System.Serializable]
     public class OnResourceGather : UnityEvent<int> {

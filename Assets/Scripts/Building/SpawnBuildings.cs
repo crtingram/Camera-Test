@@ -17,6 +17,7 @@ public class SpawnBuildings : MonoBehaviour {
 
     #region Instance Objects
     GameObject currentSpawnedBuilding;
+    BuildingSO buildingSo;
     RaycastHit hit;
     #endregion
 
@@ -62,6 +63,7 @@ public class SpawnBuildings : MonoBehaviour {
 
             if (Input.GetMouseButtonDown(1)) {
                 Destroy(currentSpawnedBuilding);
+                buildingSo = null;
             }
 
         }
@@ -71,6 +73,30 @@ public class SpawnBuildings : MonoBehaviour {
         if (PlacementHelpers.IsButtonPressed(uiRaycaster)) {
             return false;
         }
+
+        bool treeCost = PlayerController.resCont.tree >= buildingSo.treeCost;
+        bool rockCost = PlayerController.resCont.rock >= buildingSo.rockCost;
+        bool goldCost = PlayerController.resCont.gold >= buildingSo.goldCost;
+
+        if (!treeCost || !rockCost || !goldCost) {
+            return false;
+        }
+        else {
+            PlayerController.resCont.tree -= buildingSo.treeCost;
+            PlayerController.resCont.rock -= buildingSo.rockCost;
+            PlayerController.resCont.gold -= buildingSo.goldCost;
+        }
+
+        /** 
+         Resource Check(?)
+
+            Some type of data object from Build that we can
+            Send to Resource Manager class to comapare agaisnt
+            players resources.
+
+            This will need to be re-considered int he future.
+        **/
+
         return !currentSpawnedBuilding.GetComponent<BuildCollisionChecks>().colliding;
     }
 
@@ -78,6 +104,7 @@ public class SpawnBuildings : MonoBehaviour {
         if (currentSpawnedBuilding) {
             return;
         }
+        buildingSo = building;
         currentSpawnedBuilding = Instantiate(building.buildingPrefab);
     }
 

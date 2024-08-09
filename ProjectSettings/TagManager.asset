@@ -9,6 +9,9 @@ TagManager:
   - Resource
   - HealthBarTag
   - BuildBarTag
+  - TreeText
+  - RockText
+  - GoldText
   layers:
   - Default
   - TransparentFX

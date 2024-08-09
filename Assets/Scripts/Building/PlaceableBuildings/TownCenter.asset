@@ -15,4 +15,6 @@ MonoBehaviour:
   objectName: TownCenter
   buildingPrefab: {fileID: 1421146920314200058, guid: 262a7050a22c47241b6c011b4cce2d1c, type: 3}
   buildTime: 0
-  cost: 0
+  treeCost: 20
+  rockCost: 10
+  goldCost: 5

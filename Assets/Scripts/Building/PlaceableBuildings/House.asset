@@ -15,4 +15,6 @@ MonoBehaviour:
   objectName: House
   buildingPrefab: {fileID: 8238346304744014161, guid: 9aa0cdee4d7b4db42a0b3c89ee9770fc, type: 3}
   buildTime: 0
-  cost: 0
+  treeCost: 20
+  rockCost: 0
+  goldCost: 0

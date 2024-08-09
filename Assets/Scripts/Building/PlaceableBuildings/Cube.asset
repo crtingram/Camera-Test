@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a17dd9b29043229489b0bbc55495da4b, type: 3}
   m_Name: Cube
   m_EditorClassIdentifier: 
-  objectName: Capsule
+  objectName: Cube
   buildingPrefab: {fileID: 8517903523573431789, guid: cdce048376c7fd44489b3d0234163e75, type: 3}
   buildTime: 4
-  cost: 0
+  treeCost: 0
+  rockCost: 5
+  goldCost: 0

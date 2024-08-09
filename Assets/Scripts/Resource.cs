@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Assertions;
 
-class Resource : MonoBehaviour {
+public class Resource : MonoBehaviour {
 
     public int maxHealth;
     public int currentHealth;
