@@ -11,6 +11,9 @@ public class BuildCollisionChecks : MonoBehaviour {
     public bool colliding { get; private set; }
 
     void Start() {
+
+        colliding = false;
+
         if (gameObject.GetComponentsInChildren<Renderer>().Length == 1) {
             oldMaterial = GetComponent<Renderer>().material;
         }
@@ -39,6 +42,7 @@ public class BuildCollisionChecks : MonoBehaviour {
     }
 
     void OnTriggerEnter(Collider other) {
+        Debug.Log(other.ToString());
         SetColor(collisionColor);
         colliding = true;
     }
@@ -61,6 +65,8 @@ public class BuildCollisionChecks : MonoBehaviour {
         if (gameObject.GetComponentsInChildren<Collider>().Length != 1) {
             Destroy(gameObject.GetComponent<Collider>());
         }
+
+        Destroy(gameObject.GetComponent<Rigidbody>());
 
         foreach (Collider collider in gameObject.GetComponentsInChildren<Collider>()) {
             collider.isTrigger = false;
