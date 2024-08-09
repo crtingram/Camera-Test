@@ -42,7 +42,6 @@ public class BuildCollisionChecks : MonoBehaviour {
     }
 
     void OnTriggerEnter(Collider other) {
-        Debug.Log(other.ToString());
         SetColor(collisionColor);
         colliding = true;
     }

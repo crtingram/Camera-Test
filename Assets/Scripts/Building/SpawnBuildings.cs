@@ -38,7 +38,6 @@ public class SpawnBuildings : MonoBehaviour {
 
     void Update() {
         if (currentSpawnedBuilding) {
-
             if (Input.GetKey(KeyCode.Q)) {
                 currentSpawnedBuilding.gameObject.transform.Rotate(0, rotationSpeed * Time.deltaTime, 0);
             }
@@ -80,7 +79,6 @@ public class SpawnBuildings : MonoBehaviour {
             return;
         }
         currentSpawnedBuilding = Instantiate(building.buildingPrefab);
-        // currentSpawnedBuilding.gameObject.transform.position;
     }
 
 }

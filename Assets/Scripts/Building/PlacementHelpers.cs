@@ -14,7 +14,6 @@ public class PlacementHelpers {
     }
 
     public static bool IsButtonPressed(GraphicRaycaster raycaster) {
-        // TODO Understand me.
         if (!EventSystem.current) {
             Debug.LogError("EventSystem not found");
             return true;
