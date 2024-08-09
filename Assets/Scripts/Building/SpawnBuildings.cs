@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class SpawnBuildings : MonoBehaviour {
@@ -21,6 +22,10 @@ public class SpawnBuildings : MonoBehaviour {
     RaycastHit hit;
     #endregion
 
+    [System.Serializable]
+    public class UpdateResourcePanel : UnityEvent<PlayerController.ResourceContainer> {
+    }
+    public UpdateResourcePanel updateResourcePanel;
 
     void Start() {
         if (!uiRaycaster) {
@@ -55,6 +60,13 @@ public class SpawnBuildings : MonoBehaviour {
                 currentSpawnedBuilding.transform.position = new Vector3(hit.point.x, currentSpawnedBuilding.transform.position.y, hit.point.z);
 
                 if (CanPlaceBuilding()) {
+                    if (CheckBuildingCost()) {
+                        return;
+                    }
+                    else {
+                        UpdatePlayerResourcePanel();
+                    }
+
                     GameObject instance = currentSpawnedBuilding;
                     Destroy(currentSpawnedBuilding.GetComponent<BuildCollisionChecks>());
                     currentSpawnedBuilding = null;
@@ -73,31 +85,20 @@ public class SpawnBuildings : MonoBehaviour {
         if (PlacementHelpers.IsButtonPressed(uiRaycaster)) {
             return false;
         }
-
-        bool treeCost = PlayerController.resCont.tree >= buildingSo.treeCost;
-        bool rockCost = PlayerController.resCont.rock >= buildingSo.rockCost;
-        bool goldCost = PlayerController.resCont.gold >= buildingSo.goldCost;
-
-        if (!treeCost || !rockCost || !goldCost) {
-            return false;
-        }
-        else {
-            PlayerController.resCont.tree -= buildingSo.treeCost;
-            PlayerController.resCont.rock -= buildingSo.rockCost;
-            PlayerController.resCont.gold -= buildingSo.goldCost;
-        }
-
-        /** 
-         Resource Check(?)
-
-            Some type of data object from Build that we can
-            Send to Resource Manager class to comapare agaisnt
-            players resources.
-
-            This will need to be re-considered int he future.
-        **/
-
         return !currentSpawnedBuilding.GetComponent<BuildCollisionChecks>().colliding;
+    }
+
+    bool CheckBuildingCost() {
+        return !(PlayerController.resCont.tree >= buildingSo.treeCost) ||
+                 !(PlayerController.resCont.rock >= buildingSo.rockCost) ||
+                    !(PlayerController.resCont.gold >= buildingSo.goldCost);
+    }
+
+    void UpdatePlayerResourcePanel() {
+        PlayerController.resCont.tree -= buildingSo.treeCost;
+        PlayerController.resCont.rock -= buildingSo.rockCost;
+        PlayerController.resCont.gold -= buildingSo.goldCost;
+        updateResourcePanel.Invoke(PlayerController.resCont);
     }
 
     public void SpawnBuilding(BuildingSO building) {

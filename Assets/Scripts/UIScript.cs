@@ -14,6 +14,12 @@ public class UIScript : MonoBehaviour {
         infoPanelText.GetComponent<TextMeshProUGUI>().text = "";
     }
 
+    public void UpdateResourcePanel(PlayerController.ResourceContainer resourceContainer) {
+        UpdateTreeText(resourceContainer.tree);
+        UpdateRockText(resourceContainer.rock);
+        UpdateGoldText(resourceContainer.gold);
+    }
+
     public void UpdateTreeText(int i) {
         TextMeshProUGUI res = treeText.GetComponent<TextMeshProUGUI>();
         if (res) {
